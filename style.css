@@ -1,0 +1,155 @@
+*,html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    /* display: flex; */
+    background-color: #f4f4f4;
+}
+
+/* login start */
+
+/* .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+} */
+
+/* h2 {
+    margin-bottom: 20px;
+} */
+
+/* input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+} */
+
+/* button {
+    width: 100%;
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+} */
+
+/* button:hover {
+    background-color: #333;
+} */
+
+/* .link {
+    margin-top: 10px;
+    font-size: 14px;
+} */
+
+/* .link a {
+    text-decoration: none;
+    color: #007bff;
+} */
+
+/* .link a:hover {
+    text-decoration: underline;
+} */
+/* login end */
+
+/* dashboard start */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar .logo {
+    font-weight: bold;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+.navbar .menu a.active {
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.profile-card .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.profile-card .info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.profile-card .info .username {
+    font-weight: bold;
+}
+
+.profile-card .info .fullname {
+    font-size: 12px;
+    color: #777;
+}
+
+.profile-card .logout {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-card .logout:hover {
+    background-color: #333;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}        
+/* dashboard end */
