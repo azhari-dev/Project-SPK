@@ -1,3 +1,13 @@
+<?php
+
+    // require_once '../database.php';
+
+    // $user = getUsers();
+    // print_r($user);
+    // die();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +24,9 @@
         <div class="navbar">
             <div class="logo">PICKLAP</div>
             <div class="menu">
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Manage</a>
+                <a href="dashboard.php" class="active">Dashboard</a>
+                <a href="cariLaptop.php">Cari Laptop</a>
+                <a href="ranking.php">Ranking</a>
             </div>
         </div>
         <div class="container">
