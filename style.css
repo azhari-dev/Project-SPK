@@ -470,14 +470,16 @@ button:hover {
     /* background-color: #007bff; */
 }
 
-.header-row button {
-    width: 200px;
-    height: 50px;
-    padding: 10px 20px;
-    border: none;
+.header-row button  {
+    width: 150px;
+    height: 40px;
     background-color: #ccc;
-    border-radius: 200px;
-    cursor: pointer;
+    border-radius: 150px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
 
 table {
@@ -497,4 +499,16 @@ table th {
     background-color: #e0e0e0;
 }
 /* cari laptop end */
+
+/* ranking start */
+.spec-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b0b0b0;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+/* ranking end */
 
