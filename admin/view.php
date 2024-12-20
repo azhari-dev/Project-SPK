@@ -1,3 +1,12 @@
+<?php
+
+    require_once "database.php";
+
+    $getLaptop = getOneLaptop($id);
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +23,8 @@
         <div class="navbar">
             <div class="logo">PICKLAP</div>
             <div class="menu">
-                <a href="#">Dashboard</a>
-                <a href="#" class="active">Manage</a>
+                <a href="dashboard.php">Dashboard</a>
+                <a href="manage.php" class="active">Manage</a>
             </div>
         </div>
         <div class="view">
