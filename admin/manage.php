@@ -14,14 +14,14 @@
         <div class="navbar">
             <div class="logo">PICKLAP</div>
             <div class="menu">
-                <a href="#">Dashboard</a>
-                <a href="#" class="active">Manage</a>
+                <a href="dashboard.php">Dashboard</a>
+                <a href="manage.php" class="active">Manage</a>
             </div>
         </div>
         <div class="manage">
             <div class="m-container">
                 <p>Daftar Laptop Gaming</p>
-                <a href="">Add+</a>
+                <a href="tambah.php">Add+</a>
             </div>
             <table class="table-manage" border="1" cellspacing="0">
                 <tr>
@@ -38,7 +38,7 @@
                     <td>0,875</td>
                     <td>
                         <div class="action">
-                            <a href="">View</a>
+                            <a href="view.php">View</a>
                             <a href="">Delete</a>
                         </div>
                     </td>
@@ -50,7 +50,7 @@
                     <td>0,875</td>
                     <td>
                         <div class="action">
-                            <a href="">View</a>
+                            <a href="view.php">View</a>
                             <a href="">Delete</a>
                         </div>
                     </td>
@@ -62,7 +62,7 @@
                     <td>0,875</td>
                     <td>
                         <div class="action">
-                            <a href="">View</a>
+                            <a href="view.php">View</a>
                             <a href="">Delete</a>
                         </div>
                     </td>
@@ -74,7 +74,7 @@
                     <td>0,875</td>
                     <td>
                         <div class="action">
-                            <a href="">View</a>
+                            <a href="view.php">View</a>
                             <a href="">Delete</a>
                         </div>
                     </td>
@@ -86,7 +86,7 @@
                     <td>0,875</td>
                     <td>
                         <div class="action">
-                            <a href="">View</a>
+                            <a href="view.php">View</a>
                             <a href="">Delete</a>
                         </div>
                     </td>
