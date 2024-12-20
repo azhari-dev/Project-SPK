@@ -344,13 +344,6 @@ button:hover {
     height: 100vh;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-}
-
 .profile-card {
     display: flex;
     align-items: center;
@@ -407,44 +400,19 @@ button:hover {
 .container-cari-laptop {
     padding: 20px;
 }
-.header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.header-row h2 {
-    margin: 0;
-}
 .search-section {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.search-bar {
-    display: flex;
-}
-.search-bar input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    width: 300px;
-}
-.search-bar button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #ccc;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-}
-.btn-delete {
+.header-row .btn-delete {
     padding: 10px 20px;
     background-color: #ff4c4c;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 300px;
     cursor: pointer;
+    width: 300px;
 }
 .table-cari-laptop {
     width: 100%;
@@ -454,7 +422,6 @@ button:hover {
 .table-cari-laptop th, .table-cari-laptop td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: left;
 }
 .table-cari-laptop th {
     background-color: #e0e0e0;
@@ -488,6 +455,10 @@ button:hover {
 
 .container {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
 }
 
 .header-row {
@@ -495,28 +466,17 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    width: 100%;
+    /* background-color: #007bff; */
 }
 
-.header-row h2 {
-    margin: 0;
-}
-
-.search-bar {
-    display: flex;
-}
-
-.search-bar input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+.header-row button {
     width: 200px;
-}
-
-.search-bar button {
+    height: 50px;
     padding: 10px 20px;
     border: none;
     background-color: #ccc;
-    border-radius: 0 5px 5px 0;
+    border-radius: 200px;
     cursor: pointer;
 }
 
@@ -528,9 +488,9 @@ table {
 
 table th,
 table td {
+    text-align: center;
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: left;
 }
 
 table th {
