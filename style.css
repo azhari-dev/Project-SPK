@@ -6,67 +6,199 @@
 }
 
 body {
-    width: 100%;
     height: 100vh;
-    /* display: flex; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #f4f4f4;
 }
 
-/* login start */
+/* admin tambah start */
+.tambah {
+    margin-top: 20px;
+}
 
-/* .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 400px;
+/* p.heading {
+    font-size: 28px;
 } */
 
-/* h2 {
-    margin-bottom: 20px;
-} */
+.add-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    /* height: 100%; */
+    flex-direction: column;
+}
 
-/* input {
+.add-container form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 10px;
+    height: 500px;
+    justify-content: space-evenly;
+    /* background-color: #007bff; */
+}
+
+.in-content {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.in-content label {
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-} */
+}
 
-/* button {
+.content{
     width: 100%;
-    padding: 10px;
-    background-color: #555;
-    color: white;
+    display: flex;
+}
+
+
+.kriteria {
+    display: flex;
+    justify-content: space-between;
+}
+
+.in-kriteria {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-} */
+    outline: 0;
+    padding: 10px;
+}
 
-/* button:hover {
-    background-color: #333;
-} */
+.in-kriteria.first {
+    width: 65%;
+}
 
-/* .link {
-    margin-top: 10px;
-    font-size: 14px;
-} */
+.in-kriteria.second {
+    width: 30%;
+}
 
-/* .link a {
+/* admin tambah end */
+
+/* admin manage start */
+
+.manage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-container {
+    /* background-color: tomato; */
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+}
+
+.m-container a {
     text-decoration: none;
-    color: #007bff;
-} */
+    color: #333;
+    padding: 15px 100px;
+    background-color: #D9D9D9;
+    border-radius: 100px;
+    font-size: 20px;
+}
 
-/* .link a:hover {
-    text-decoration: underline;
-} */
-/* login end */
+.m-container p {
+    /* background-color: #007bff; */
+    font-size: 28px;
+    font-weight: medium;
+}
 
-/* dashboard start */
+.table-manage {
+    width: 96%;
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.table-manage tr th {
+    padding: 15px 0;
+    font-size: 20px;
+}
+
+.table-manage th, .table-manage td {
+    padding: 5px;
+}
+
+.table-manage td .action {
+    width: 82px;
+    display: flex;
+}
+
+.table-manage .action a {
+    border-radius: 8px;
+    margin: 5px 8px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 40px;
+    background-color: #777;
+}
+/* admin manage start */
+
+/* admin view start */
+.view {
+    margin-top: 20px;
+    height: 85%;
+}
+
+p.heading {
+    font-size: 28px;
+}
+
+.view img {
+    width: 350px;
+}
+
+.v-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.v-container .content {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.spek{
+    width: 47%;
+    display: flex;
+    /* background-color: tomato; */
+    justify-content: space-between;
+    /* width: 40%; */
+}
+
+.spek p {
+    text-align: center;
+    font-size: 16px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+.in-spek-1 {
+    width: 30%;
+}
+
+.in-spek-2 {
+    width: 65%;
+}
+
+/* admin view end */
+
+/* navbar start */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -93,6 +225,123 @@ body {
 
 .navbar .menu a.active {
     font-weight: bold;
+}
+/* navbar end */
+
+/* landing page start */
+
+.lp-1 {
+    display: flex;
+    justify-content: center;
+}
+
+.lp-1 .logo {
+    font-size: 24px;
+}
+
+.lp-2 {
+    /* background-color: #007bff; */
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.section {
+    width: 47%;
+    height: 92%;
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+
+.left p {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.right p {
+    font-size: 20px;
+    text-align: justify;
+    color: white;
+}
+
+.left a {
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #5A5A5A;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.right {
+    background-color: #909090;
+}
+/* landing page end */
+
+/* login/register start */
+.log-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+/* login/register end */
+
+/* dashboard start */
+.db-container {
+    width: 100%;
+    height: 100vh;
 }
 
 .container {
@@ -153,3 +402,139 @@ body {
     margin-bottom: 20px;
 }        
 /* dashboard end */
+
+/* rekomendasi laptop start */
+.container-cari-laptop {
+    padding: 20px;
+}
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header-row h2 {
+    margin: 0;
+}
+.search-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar {
+    display: flex;
+}
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+}
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.btn-delete {
+    padding: 10px 20px;
+    background-color: #ff4c4c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.table-cari-laptop {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+.table-cari-laptop th, .table-cari-laptop td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+.table-cari-laptop th {
+    background-color: #e0e0e0;
+}
+/* rekomendasi laptop end */
+
+/* cari laptop start */
+.header {
+    background-color: #e0e0e0;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header .nav {
+    display: flex;
+    align-items: center;
+}
+
+.header .nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    padding: 20px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-row h2 {
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #e0e0e0;
+}
+/* cari laptop end */
+
