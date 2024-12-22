@@ -1,11 +1,27 @@
 <?php
+    $conn = new mysqli('localhost', 'root', '', 'coba_spk');
 
-    // require_once '../database.php';
+    session_start();
 
-    // $user = getUsers();
-    // print_r($user);
-    // die();
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
+        header('Location: ../index.php');
+        exit;
+    }
 
+    if (isset($_GET['logout'])) {
+        session_unset();
+        session_destroy();
+        header('Location: ../index.php');
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+    $stmt = $conn->prepare('SELECT username, fullname FROM users WHERE user_id = ?');
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $stmt->bind_result($username, $fullname);
+    $stmt->fetch();
+    $stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +50,8 @@
             <div class="profile-card">
                 <div class="avatar"></div>
                 <div class="info">
-                    <div class="username">Username</div>
-                    <div class="fullname">Nama Lengkap</div>
+                    <div class="username"><?= htmlspecialchars($username) ?></div>
+                    <div class="fullname"><?= htmlspecialchars($fullname) ?></div>
                 </div>
                 <form action="" method="GET">
                     <button type="submit" name="logout" value="1" class="logout">Logout</button>
