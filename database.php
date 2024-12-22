@@ -2,10 +2,11 @@
 
     define("DB", new PDO('mysql:host=localhost;dbname=coba_spk', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]));
 
-    function addLaptop($nama, $cpu, $ram, $gpu, $storage, $baterai, $layar, $harga){
+    function addLaptop($id, $nama, $cpu, $ram, $gpu, $storage, $baterai, $layar, $harga){
         try {
-            $statement = DB->prepare("INSERT INTO laptop (laptop_nama, laptop_cpu, laptop_ram, laptop_gpu, laptop_storage, laptop_baterai, laptop_layar, laptop_harga) VALUES (:laptop_nama, :laptop_cpu, :laptop_ram, :laptop_gpu, :laptop_storage, :laptop_baterai, :laptop_layar, :laptop_harga)");
+            $statement = DB->prepare("INSERT INTO laptop (user_id, laptop_nama, laptop_cpu, laptop_ram, laptop_gpu, laptop_storage, laptop_baterai, laptop_layar, laptop_harga) VALUES (:user_id, :laptop_nama, :laptop_cpu, :laptop_ram, :laptop_gpu, :laptop_storage, :laptop_baterai, :laptop_layar, :laptop_harga)");
             $statement->execute([
+                ':user_id' => $id,
                 ':laptop_nama' => $nama,
                 ':laptop_cpu' => $cpu,
                 ':laptop_ram' => $ram,
@@ -56,6 +57,18 @@
         }
     }
 
+    function addNilaiAkhir($id, $nilaiAkhir){
+        try {
+            $statement = DB->prepare("INSERT INTO nilai_akhir (akhir_laptop_id, nilai_akhir) VALUES (:akhir_laptop_id, :nilai_akhir)");
+            $statement->execute([
+                ':akhir_laptop_id' => $id,
+                ':nilai_akhir' => $nilaiAkhir
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
     function getUsers(){
         try {
             $statement = DB->prepare("SELECT * FROM users");
@@ -90,12 +103,116 @@
         }
     }
 
-    function getKriteria(){
+    function getLastLaptop(){
         try {
-            $statement = DB->prepare("SELECT * FROM nilai_kriteria");
+            $statement = DB->prepare("SELECT * FROM laptop ORDER BY laptop_id DESC LIMIT 1");
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function getKriteria($id){
+        try {
+            $statement = DB->prepare("SELECT * FROM nilai_kriteria  WHERE kriteria_laptop_id = :id");
+            $statement->bindValue(':id', $id);
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function getUtility($id){
+        try {
+            $statement = DB->prepare("SELECT * FROM nilai_utility WHERE utility_laptop_id = :id");
+            $statement->bindValue(':id', $id);
+            $statement->execute();
+
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function getNilaiAkhir(){
+        try {
+            $statement = DB->prepare("SELECT * FROM nilai_akhir");
             $statement->execute();
 
             return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function getRanking(){
+        try {
+            $statement = DB->prepare("SELECT l.laptop_id, l.laptop_nama, a.nilai_akhir FROM laptop l, nilai_akhir a WHERE l.laptop_id = a.akhir_laptop_id ORDER BY a.nilai_akhir DESC");
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    
+    function showLaptop($data){
+        try {
+            $statement = DB->prepare("SELECT * FROM nilai_akhir WHERE id IN :data ");
+            $statement->execute([
+                ':data' => $data
+            ]);
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function deleteLaptop($id){
+        try {
+            $statement = DB->prepare("DELETE FROM laptop WHERE laptop_id = :id");
+            $statement->execute([
+                ':id' => $id
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function deleteKriteria($id){
+        try {
+            $statement = DB->prepare("DELETE FROM nilai_kriteria WHERE kriteria_laptop_id = :id");
+            $statement->execute([
+                ':id' => $id
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function deleteUtility($id){
+        try {
+            $statement = DB->prepare("DELETE FROM nilai_utility WHERE utility_laptop_id = :id");
+            $statement->execute([
+                ':id' => $id
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function deleteAkhir($id){
+        try {
+            $statement = DB->prepare("DELETE FROM nilai_akhir WHERE akhir_laptop_id = :id");
+            $statement->execute([
+                ':id' => $id
+            ]);
         } catch (PDOException $err) {
             echo $err->getMessage();
         }
