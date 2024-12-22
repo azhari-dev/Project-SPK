@@ -3,7 +3,6 @@
     require_once "../database.php";
 
     if (isset($_POST['submit'])){
-
         $namaLaptop = $_POST['nama-laptop'];
         $cpu = $_POST['cpu'];
         $ram = $_POST['ram'];
@@ -12,9 +11,18 @@
         $baterai = $_POST['baterai'];
         $layar = $_POST['layar'];
         $harga = $_POST['harga'];
-        addLaptop($namaLaptop, $cpu, $ram, $gpu, $storage, $baterai, $layar, $harga);
-
-        // $kriteria_id = 
+        // menambahkan laptop
+        addLaptop(1, $namaLaptop, $cpu, $ram, $gpu, $storage, $baterai, $layar, $harga);
+        
+        // // mendapatkan id laptop terakhir
+        $getLastLaptop = getLastLaptop();
+        // // mendapatkan kriteria laptop id
+        // print_r($kriteria);
+        // echo "<br>";
+        // print_r($getLastLaptop);
+        // die();
+        
+        $kriteria_id = $getLastLaptop['laptop_id'];
         $kriteria_harga = $_POST['k-harga'];
         $kriteria_cpu = $_POST['k-cpu'];
         $kriteria_storage = $_POST['k-storage'];
@@ -23,7 +31,11 @@
         $kriteria_baterai = $_POST['k-baterai'];
         $kriteria_layar = $_POST['k-layar'];
         
-        $utility_id = $kriteria['kriteria_laptop_id'];
+        addKriteria($kriteria_id, $kriteria_cpu, $kriteria_ram, $kriteria_gpu, $kriteria_storage, $kriteria_baterai, $kriteria_layar, $kriteria_harga);
+        
+        $kriteria = getKriteria($getLastLaptop['laptop_id']);
+        
+        $utility_id = $getLastLaptop['laptop_id'];
         $utility_harga = (60 - $kriteria['kriteria_harga']) / (60 - 10);
         $utility_cpu = ($kriteria['kriteria_cpu'] - 10) / (60 - 10);
         $utility_storage = ($kriteria['kriteria_storage'] - 10) / (60 - 10);
@@ -31,8 +43,26 @@
         $utility_gpu = ($kriteria['kriteria_gpu'] - 10) / (60 - 10);
         $utility_baterai = ($kriteria['kriteria_baterai'] - 10) / (60 - 1);
         $utility_layar = ($kriteria['kriteria_layar'] - 10) / (60 - 10);
-     
+
+        // menambahkan nilai utility
         addUtility($utility_id, $utility_cpu, $utility_ram, $utility_gpu, $utility_storage, $utility_baterai, $utility_layar, $utility_harga);
+
+        // mendapatkan utility laptop id
+        $utility = getUtility($getLastLaptop['laptop_id']);
+
+        $akhir_id = $getLastLaptop['laptop_id'];
+        $akhir_harga = $utility['utility_harga'] * 0.05;
+        $akhir_cpu = $utility['utility_cpu'] * 0.25;
+        $akhir_storage = $utility['utility_storage'] * 0.1;
+        $akhir_ram = $utility['utility_ram'] * 0.15;
+        $akhir_gpu = $utility['utility_gpu'] * 0.3;
+        $akhir_baterai = $utility['utility_baterai'] * 0.05;
+        $akhir_layar = $utility['utility_layar'] * 0.1;
+
+        $nilai_akhir = $akhir_harga + $akhir_cpu + $akhir_storage + $akhir_ram + $akhir_gpu + $akhir_baterai + $akhir_layar;
+        // menambahkan nilai akhir
+        addNilaiAkhir($akhir_id, $nilai_akhir); 
+
     }
 
 ?>
