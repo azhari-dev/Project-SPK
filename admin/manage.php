@@ -8,6 +8,7 @@
     if (isset($_GET['deleteLaptop'])){
         $id = $_GET['deleteLaptop'];
 
+        deleteHasil($id);
         deleteAkhir($id);
         deleteUtility($id);
         deleteKriteria($id);
@@ -98,7 +99,7 @@
                         <td><?= $temp ?></td>
                         <td><?= $ranking['laptop_id'] ?></td>
                         <td><?= $ranking['laptop_nama'] ?></td>
-                        <td><?= $ranking['nilai_akhir'] ?></td>
+                        <td><?= $ranking['nilai_hasil_akhir'] ?></td>
                         <td>
                             <div class="action">
                                 <button value="<?= $ranking['laptop_id'] ?>"  name="view" class="button-view">View</button>
