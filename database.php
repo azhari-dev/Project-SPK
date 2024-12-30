@@ -57,17 +57,49 @@
         }
     }
 
-    function addNilaiAkhir($id, $nilaiAkhir){
+    // function addNilaiAkhir($id, $nilaiAkhir){
+    //     try {
+    //         $statement = DB->prepare("INSERT INTO nilai_akhir (akhir_laptop_id, nilai_akhir) VALUES (:akhir_laptop_id, :nilai_akhir)");
+    //         $statement->execute([
+    //             ':akhir_laptop_id' => $id,
+    //             ':nilai_akhir' => $nilaiAkhir
+    //         ]);
+    //     } catch (PDOException $err) {
+    //         echo $err->getMessage();
+    //     }
+    // }
+
+    function addNilaiAkhir($id, $cpu, $ram, $gpu, $storage, $baterai, $layar, $harga){
         try {
-            $statement = DB->prepare("INSERT INTO nilai_akhir (akhir_laptop_id, nilai_akhir) VALUES (:akhir_laptop_id, :nilai_akhir)");
+            $statement = DB->prepare("INSERT INTO nilai_akhir (akhir_laptop_id, akhir_cpu, akhir_ram, akhir_gpu, akhir_storage, akhir_baterai, akhir_layar, akhir_harga) VALUES (:akhir_laptop_id, :akhir_cpu, :akhir_ram, :akhir_gpu, :akhir_storage, :akhir_baterai, :akhir_layar, :akhir_harga)");
             $statement->execute([
                 ':akhir_laptop_id' => $id,
-                ':nilai_akhir' => $nilaiAkhir
+                ':akhir_cpu' => $cpu,
+                ':akhir_ram' => $ram,
+                ':akhir_gpu' => $gpu,
+                ':akhir_storage' => $storage,
+                ':akhir_baterai' => $baterai,
+                ':akhir_layar' => $layar,
+                ':akhir_harga' => $harga
             ]);
         } catch (PDOException $err) {
             echo $err->getMessage();
         }
     }
+
+    function addHasilAkhir($id, $hasilAkhir){
+        try {
+            $statement = DB->prepare("INSERT INTO hasil_akhir (hasil_laptop_id, nilai_hasil_akhir) VALUES (:hasil_laptop_id, :nilai_hasil)");
+            $statement->execute([
+                ':hasil_laptop_id' => $id,
+                ':nilai_hasil' => $hasilAkhir
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    
 
     function getUsers(){
         try {
@@ -119,13 +151,13 @@
             $statement = DB->prepare("SELECT * FROM nilai_kriteria  WHERE kriteria_laptop_id = :id");
             $statement->bindValue(':id', $id);
             $statement->execute();
-
+            
             return $statement->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $err) {
             echo $err->getMessage();
         }
     }
-
+    
     function getUtility($id){
         try {
             $statement = DB->prepare("SELECT * FROM nilai_utility WHERE utility_laptop_id = :id");
@@ -138,12 +170,13 @@
         }
     }
 
-    function getNilaiAkhir(){
+    function getNilaiAkhir($id){
         try {
-            $statement = DB->prepare("SELECT * FROM nilai_akhir");
+            $statement = DB->prepare("SELECT * FROM nilai_akhir WHERE akhir_laptop_id = :id");
+            $statement->bindValue(':id', $id);
             $statement->execute();
 
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $err) {
             echo $err->getMessage();
         }
@@ -151,7 +184,7 @@
 
     function getRanking(){
         try {
-            $statement = DB->prepare("SELECT l.laptop_id, l.laptop_nama, a.nilai_akhir FROM laptop l, nilai_akhir a WHERE l.laptop_id = a.akhir_laptop_id ORDER BY a.nilai_akhir DESC");
+            $statement = DB->prepare("SELECT l.laptop_id, l.laptop_nama, a.nilai_hasil_akhir FROM laptop l, hasil_akhir a WHERE l.laptop_id = a.hasil_laptop_id ORDER BY a.nilai_hasil_akhir DESC");
             $statement->execute();
 
             return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -210,6 +243,17 @@
     function deleteAkhir($id){
         try {
             $statement = DB->prepare("DELETE FROM nilai_akhir WHERE akhir_laptop_id = :id");
+            $statement->execute([
+                ':id' => $id
+            ]);
+        } catch (PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
+
+    function deleteHasil($id){
+        try {
+            $statement = DB->prepare("DELETE FROM hasil_akhir WHERE hasil_laptop_id = :id");
             $statement->execute([
                 ':id' => $id
             ]);
